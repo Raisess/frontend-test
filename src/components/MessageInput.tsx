@@ -3,21 +3,25 @@ import { Formik } from "formik";
 import "./styles/message_bubble.css";
 import "./styles/message_input.css";
 
+import emitter from "../utils/emitter";
+
 interface IMessageInputProps {
 	propName:      string;
 	initialValue?: any;
+	display:       boolean;
+	placeholder:   string;
 }
 
-export default function MessageInput({ propName, initialValue }: IMessageInputProps): JSX.Element {
+export default function MessageInput({ propName, initialValue, display, placeholder }: IMessageInputProps): JSX.Element {
 	return (
-		<div className="message-bubble">
+		<div className="message-bubble" style={{ display: display ? "" : "none" }}>
 			<div className="message-bubble-msg-container">
 				<Formik
 					initialValues={{ [propName]: initialValue || "" }}
 					onSubmit={(values: any, { setSubmitting }: any): void => {
-						setTimeout(() => {
-							alert(JSON.stringify(values, null, 2));
+						emitter.emit("next_msg", values);
 
+						setTimeout(() => {
 							setSubmitting(false);
 						}, 400);
 					}}
@@ -38,11 +42,12 @@ export default function MessageInput({ propName, initialValue }: IMessageInputPr
 							>
 								<input
 									className="message-form-input"
+									placeholder={ placeholder }
 									type="text"
 									name={ propName }
 									onChange={ handleChange }
 									onBlur={ handleBlur }
-									value={ values.email }
+									value={ values[propName] }
 								/>
 								{ errors[propName] && touched[propName] && errors[propName] }
 								<button
