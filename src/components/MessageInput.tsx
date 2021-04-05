@@ -14,7 +14,7 @@ interface IMessageInputProps {
 
 export default function MessageInput({ propName, initialValue, display, placeholder }: IMessageInputProps): JSX.Element {
 	return (
-		<div className="message-bubble" style={{ display: display ? "" : "none" }}>
+		<div className="message-bubble input-bubble" style={{ display: display ? "" : "none" }}>
 			<div className="message-bubble-msg-container">
 				<Formik
 					initialValues={{ [propName]: initialValue || "" }}

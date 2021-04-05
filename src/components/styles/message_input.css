@@ -1,3 +1,9 @@
+@media (min-width: 600px) {
+	.input-bubble {
+		margin-left: 40vw;
+	}
+}
+
 .message-form {
 	padding: 10px;
 	display: flex;
@@ -7,7 +13,7 @@
 .message-form-input {
 	font-size: 18px;
 	padding: 5px;
-	width: 90vw;
+	width: 95%;
 	background-color: transparent;
 	color: #fff;
 	border: solid 2px #fff;
