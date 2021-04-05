@@ -44,7 +44,7 @@ export default function MessageInput({ propName, initialValue, display, placehol
 					}}
 					onSubmit={(values: any, { isSubmitting }: { isSubmitting: boolean }): void => {
 						if (!isSubmitting) {
-							emitter.emit("next_msg", values);
+							emitter.emit("msg", values);
 						}
 					}}
 				>

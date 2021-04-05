@@ -20,7 +20,7 @@ export default function StarsInput({ display }: { display: boolean }): JSX.Eleme
 									onClick={(): void => {
 										setCount(v);
 
-										emitter.emit("next_msg", { stars: v });
+										emitter.emit("msg", { stars: v });
 									}}
 									style={{ color: count >= v ? "orange" : "" }}
 								>
