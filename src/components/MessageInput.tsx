@@ -47,12 +47,10 @@ export default function MessageInput({ propName, initialValue, display, placehol
 
 						return errors;
 					}}
-					onSubmit={(values: any, { setSubmitting }: any): void => {
-						emitter.emit("next_msg", values);
-
-						setTimeout((): void => {
-							setSubmitting(false);
-						}, 400);
+					onSubmit={(values: any, { isSubmitting }: { isSubmitting: boolean }): void => {
+						if (!isSubmitting) {
+							emitter.emit("next_msg", values);
+						}
 					}}
 				>
 					{
