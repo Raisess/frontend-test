@@ -11,7 +11,9 @@ export default function App(): JSX.Element {
 
 	const profilePicture: string = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fbc%2Fef%2F82%2Fbcef822d03a9f16ea8e0b026476bf231.png&f=1&nofb=1";
 
-	emitter.on("next_msg", (props: string): void => {
+	emitter.on("next_msg", (receivedProps: string): void => {
+		Object.assign(props, receivedProps);
+
 		setProps(props);
 		setDisplay(true);
 
