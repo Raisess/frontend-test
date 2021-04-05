@@ -8,9 +8,15 @@ body {
 
 	background-color: #1e032d;	
 	color: #fff;
+	overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+	cursor: pointer;
+}
+
