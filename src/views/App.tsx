@@ -22,8 +22,6 @@ export default function App(): JSX.Element {
 		setProps(props);
 		setDisplay(display);
 		setAcc(acc + 1);
-
-		console.log(props);
 	});
 
   return (
