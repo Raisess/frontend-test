@@ -74,10 +74,11 @@ export default function App(): JSX.Element {
 			<MessageInput
 				placeholder=""
 				propName="stars"
+				initialValue="1"
 				display={ display[3] }
 			/>
 		{
-			acc >= 5
+			acc >= 4
 				? <SaveButton />
 				: ""
 		}
