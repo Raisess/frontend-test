@@ -11,8 +11,6 @@ export default function SaveButton({ userProps }: any): JSX.Element {
 				onClick={async (): Promise<void> => {
 					const isValid: boolean = await userSchema.isValid(userProps);
 
-					console.log(isValid);
-
 					if (isValid) {
 						await createUser(userProps);
 
