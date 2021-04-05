@@ -1,0 +1,25 @@
+.message-form {
+	padding: 10px;
+	display: flex;
+	gap: 7px;
+}
+
+.message-form-input {
+	font-size: 18px;
+	padding: 5px;
+	width: 90vw;
+	background-color: transparent;
+	color: #fff;
+	border: solid 2px #fff;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.message-form-submit {
+	background-color: transparent;
+	border: none;
+	color: #fff;
+	font-size: 23px;
+}
+
