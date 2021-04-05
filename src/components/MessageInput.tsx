@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Formik } from "formik";
 
 import "./styles/message_bubble.css";
@@ -13,15 +14,36 @@ interface IMessageInputProps {
 }
 
 export default function MessageInput({ propName, initialValue, display, placeholder }: IMessageInputProps): JSX.Element {
+	const [error, setError]: [boolean, Function] = useState(false);
+
 	return (
 		<div className="message-bubble input-bubble" style={{ display: display ? "" : "none" }}>
-			<div className="message-bubble-msg-container">
+			<div className="message-bubble-msg-container" style={{ backgroundColor: error ? "#ea1c1f" : "" }}>
 				<Formik
 					initialValues={{ [propName]: initialValue || "" }}
+					validate={(values: any): any => {
+						const errors: any = {};
+
+						if (!values[propName]) {
+							errors[propName] = "Required";
+
+							setError(true);
+						} else {
+							if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+								errors.email = "Invalid email address";
+
+								setError(true);
+							} else {
+								setError(false);
+							}
+						}
+
+						return errors;
+					}}
 					onSubmit={(values: any, { setSubmitting }: any): void => {
 						emitter.emit("next_msg", values);
 
-						setTimeout(() => {
+						setTimeout((): void => {
 							setSubmitting(false);
 						}, 400);
 					}}
@@ -29,8 +51,6 @@ export default function MessageInput({ propName, initialValue, display, placehol
 					{
 						({
 							values,
-							errors,
-							touched,
 							handleChange,
 							handleBlur,
 							handleSubmit,
@@ -49,7 +69,6 @@ export default function MessageInput({ propName, initialValue, display, placehol
 									onBlur={ handleBlur }
 									value={ values[propName] }
 								/>
-								{ errors[propName] && touched[propName] && errors[propName] }
 								<button
 									className="message-form-submit"
 									type="submit"
