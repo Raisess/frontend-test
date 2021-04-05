@@ -6,17 +6,16 @@ import "./styles/message_input.css";
 
 import emitter from "../utils/emitter";
 
-import emailValidator from "../validators/emailValidator";
-import dateValidator from "../validators/dateValidator";
-
 interface IMessageInputProps {
 	propName:      string;
 	initialValue?: any;
 	display:       boolean;
 	placeholder:   string;
+	type?:         string;
+	validator?:    Function;
 }
 
-export default function MessageInput({ propName, initialValue, display, placeholder }: IMessageInputProps): JSX.Element {
+export default function MessageInput({ propName, initialValue, display, placeholder, type, validator }: IMessageInputProps): JSX.Element {
 	const [error, setError]: [boolean, Function] = useState(false);
 
 	return (
@@ -32,12 +31,8 @@ export default function MessageInput({ propName, initialValue, display, placehol
 
 							setError(true);
 						} else {
-							if (values.email && !emailValidator(values.email)) {
-								errors.email = "Invalid email address";
-
-								setError(true);
-							} else if (values.bday && !dateValidator(values.bday)) {
-								errors.bday = "Invalid birthday";
+							if (validator && !validator(values[propName])) {
+								errors[propName] = "Invalid " + propName;
 
 								setError(true);
 							} else {
@@ -68,7 +63,7 @@ export default function MessageInput({ propName, initialValue, display, placehol
 								<input
 									className="message-form-input"
 									placeholder={ placeholder }
-									type="text"
+									type={ type || "text" }
 									name={ propName }
 									onChange={ handleChange }
 									onBlur={ handleBlur }

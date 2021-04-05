@@ -6,6 +6,9 @@ import SaveButton from "../components/SaveButton";
 
 import emitter from "../utils/emitter";
 
+import emailValidator from "../validators/emailValidator";
+import dateValidator from "../validators/dateValidator";
+
 export default function App(): JSX.Element {
 	const [props, setProps]: [any, Function]    = useState({});
 	const [acc, setAcc]:     [number, Function] = useState(0);
@@ -53,8 +56,9 @@ export default function App(): JSX.Element {
 			/>
 			<MessageInput
 				placeholder="00/00/0000"
-				propName="bday"
+				propName="birthday"
 				display={ display[1] }
+				validator={ dateValidator }
 			/>
 			<MessageBubble
 				profilePicture={ profilePicture }
@@ -65,6 +69,7 @@ export default function App(): JSX.Element {
 				placeholder="E-mail"
 				propName="email"
 				display={ display[2] }
+				validator={ emailValidator }
 			/>
 			<MessageBubble
 				profilePicture={ profilePicture }
@@ -75,11 +80,12 @@ export default function App(): JSX.Element {
 				placeholder=""
 				propName="stars"
 				initialValue="1"
+				type="number"
 				display={ display[3] }
 			/>
 		{
-			acc >= 4
-				? <SaveButton />
+			acc >= 5
+				? <SaveButton userProps={props} />
 				: ""
 		}
     </div>
