@@ -17,9 +17,12 @@
 }
 
 .message-bubble-msg-container {
-	background-color: #eee;
+	background-color: #340151;
 	padding: 0 10px 0 10px;
-	border: solid 2px #bbb;
 	border-radius: 10px;
+}
+
+.message-bubble-msg-container > p {
+	margin-top: 10px;
 }
 

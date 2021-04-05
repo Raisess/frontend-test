@@ -1,7 +1,7 @@
 import MessageBubble from "../components/MessageBubble";
 
 export default function App(): JSX.Element {
-	const profilePicture: string = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F33%2FSmiling_smiley_yellow_simple.svg%2F1200px-Smiling_smiley_yellow_simple.svg.png&f=1&nofb=1";
+	const profilePicture: string = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fbc%2Fef%2F82%2Fbcef822d03a9f16ea8e0b026476bf231.png&f=1&nofb=1";
 
   return (
     <div className="App">
