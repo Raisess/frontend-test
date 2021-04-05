@@ -6,6 +6,9 @@ import "./styles/message_input.css";
 
 import emitter from "../utils/emitter";
 
+import emailValidator from "../validators/emailValidator";
+import dateValidator from "../validators/dateValidator";
+
 interface IMessageInputProps {
 	propName:      string;
 	initialValue?: any;
@@ -29,8 +32,12 @@ export default function MessageInput({ propName, initialValue, display, placehol
 
 							setError(true);
 						} else {
-							if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+							if (values.email && !emailValidator(values.email)) {
 								errors.email = "Invalid email address";
+
+								setError(true);
+							} else if (values.bday && !dateValidator(values.bday)) {
+								errors.bday = "Invalid birthday";
 
 								setError(true);
 							} else {
