@@ -12,7 +12,7 @@ interface IMessageInputProps {
 	display:       boolean;
 	placeholder:   string;
 	type?:         string;
-	validator?:    Function;
+	validator?:    (prop: string) => boolean;
 }
 
 export default function MessageInput({ propName, initialValue, display, placeholder, type, validator }: IMessageInputProps): JSX.Element {
