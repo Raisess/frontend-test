@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import MessageBubble from "../components/MessageBubble";
 import MessageInput from "../components/MessageInput";
+import StarsInput from "../components/StarsInput";
 import SaveButton from "../components/SaveButton";
 
 import emitter from "../utils/emitter";
@@ -76,10 +77,7 @@ export default function App(): JSX.Element {
 				message="Você finalizou o teste. Faça uma avaliação sobre o processo que realizou até chegar aqui. Nós agradecemos!"
 				display={ display[3] }
 			/>
-			<MessageInput
-				propName="stars"
-				initialValue="1"
-				type="number"
+			<StarsInput
 				display={ display[3] }
 			/>
 		{

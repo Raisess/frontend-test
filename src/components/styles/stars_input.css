@@ -1,0 +1,17 @@
+.stars-container-wrapper {
+	text-align: center;
+}
+
+.stars-container {
+	padding: 10px;
+	display: flex;
+	gap: 10px;
+}
+
+.stars-container > button {
+	background-color: transparent;
+	border: none;
+	font-size: 25px;
+	color: gray;
+}
+
