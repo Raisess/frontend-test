@@ -77,7 +77,6 @@ export default function App(): JSX.Element {
 				display={ display[3] }
 			/>
 			<MessageInput
-				placeholder=""
 				propName="stars"
 				initialValue="1"
 				type="number"

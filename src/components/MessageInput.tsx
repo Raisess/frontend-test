@@ -10,7 +10,7 @@ interface IMessageInputProps {
 	propName:      string;
 	initialValue?: any;
 	display:       boolean;
-	placeholder:   string;
+	placeholder?:  string;
 	type?:         string;
 	validator?:    (prop: string) => boolean;
 }
@@ -62,7 +62,7 @@ export default function MessageInput({ propName, initialValue, display, placehol
 							>
 								<input
 									className="message-form-input"
-									placeholder={ placeholder }
+									placeholder={ placeholder || "" }
 									type={ type || "text" }
 									name={ propName }
 									onChange={ handleChange }
