@@ -1,0 +1,16 @@
+.save-button-container {
+	width: 100vw;
+	text-align: center;
+	padding: 30px 0 50px 0;
+}
+
+.save-button {
+	width: 80vw;
+	font-size: 20px;
+	padding: 10px;
+	border: none;
+	border-radius: 20px;
+	background-color: purple;
+	color: #fff;
+}
+

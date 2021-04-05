@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import MessageBubble from "../components/MessageBubble";
 import MessageInput from "../components/MessageInput";
+import SaveButton from "../components/SaveButton";
 
 import emitter from "../utils/emitter";
 
@@ -77,6 +78,11 @@ export default function App(): JSX.Element {
 				propName="stars"
 				display={ display[3] }
 			/>
+		{
+			acc >= 5
+				? <SaveButton />
+				: ""
+		}
     </div>
   );
 }
