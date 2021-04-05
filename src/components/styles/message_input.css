@@ -4,6 +4,11 @@
 	}
 }
 
+.input-bubble > p {
+	margin-top: 5px;
+	color: #ea1c1f;
+}
+
 .message-form {
 	padding: 10px;
 	display: flex;

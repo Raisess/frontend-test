@@ -81,6 +81,7 @@ export default function MessageInput({ propName, initialValue, display, placehol
 					}
 				</Formik>
 			</div>
+			{ error && <p>O conteúdo deste campo é inválido</p> }
 		</div>
 	);
 }
