@@ -6,6 +6,7 @@
 
 .save-button {
 	width: 80vw;
+	max-width: 300px;
 	font-size: 20px;
 	padding: 10px;
 	border: none;
