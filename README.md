@@ -2,6 +2,18 @@
 
 ## Teste para vaga front-end na WORKALOVE EDTECH
 
+### Como rodar
+
+Tenha o [NodeJS](https://nodejs.org) LTS e o [Typescript](https://typescriptlang.org) LTS instalados.
+
+Execute o comando:
+
+```shell
+npm run start
+```
+
+Pronto, só ver o resultado no seu browser.
+
 ### Tecnologias utilizadas
 
 <code>
