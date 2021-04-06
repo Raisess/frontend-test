@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import Greating from "../components/Greating";
 import MessageBubble from "../components/MessageBubble";
 import MessageInput from "../components/MessageInput";
 import StarsInput from "../components/StarsInput";
@@ -30,6 +31,10 @@ export default function App(): JSX.Element {
 
   return (
     <div className="App">
+			<Greating
+				botName="Chatnilson"
+				profilePicture={ profilePicture }
+			/>
 			<MessageBubble
 				profilePicture={ profilePicture }
 				message="Olá, eu sou o Chatnilson, tudo bem? Para começarmos, preciso saber seu nome."

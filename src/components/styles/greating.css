@@ -1,0 +1,11 @@
+.greating {
+	text-align: center;
+	padding: 10px 0 15px 0;
+}
+
+.greating > .greating-container > img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
