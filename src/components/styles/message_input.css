@@ -27,6 +27,12 @@
 	border-right: none;
 }
 
+.message-form-msg-container {
+	background-color: #2b0044;
+	padding: 0 10px 0 10px;
+	border-radius: 10px;
+}
+
 .message-form-submit {
 	background-color: transparent;
 	border: none;

@@ -20,7 +20,7 @@ export default function MessageInput({ propName, initialValue, display, placehol
 
 	return (
 		<div className="message-bubble input-bubble" style={{ display: display ? "" : "none" }}>
-			<div className="message-bubble-msg-container" style={{ backgroundColor: error ? "#ea1c1f" : "" }}>
+			<div className="message-form-msg-container" style={{ backgroundColor: error ? "#ea1c1f" : "" }}>
 				<Formik
 					initialValues={{ [propName]: initialValue || "" }}
 					validate={(values: any): any => {
