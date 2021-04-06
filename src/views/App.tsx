@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Greating from "../components/Greating";
+import Greeting from "../components/Greeting";
 import MessageBubble from "../components/MessageBubble";
 import MessageInput from "../components/MessageInput";
 import StarsInput from "../components/StarsInput";
@@ -17,7 +17,13 @@ export default function App(): JSX.Element {
 
 	const [display, setDisplay]: [Array<boolean>, Function] = useState([false, false, false, false]);
 
-	const profilePicture: string = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fbc%2Fef%2F82%2Fbcef822d03a9f16ea8e0b026476bf231.png&f=1&nofb=1";
+	const botData: {
+		name: string;
+		pfp:  string;
+	} = {
+		name: "Chatnilson",
+		pfp:  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fbc%2Fef%2F82%2Fbcef822d03a9f16ea8e0b026476bf231.png&f=1&nofb=1"
+	};
 
 	emitter.on("msg", (receivedProps: string): void => {
 		Object.assign(props, receivedProps);
@@ -31,12 +37,12 @@ export default function App(): JSX.Element {
 
   return (
     <div className="App">
-			<Greating
-				botName="Chatnilson"
-				profilePicture={ profilePicture }
+			<Greeting
+				botName={ botData.name }
+				profilePicture={ botData.pfp }
 			/>
 			<MessageBubble
-				profilePicture={ profilePicture }
+				profilePicture={ botData.pfp }
 				message="Olá, eu sou o Chatnilson, tudo bem? Para começarmos, preciso saber seu nome."
 				display={true}
 			/>
@@ -46,7 +52,7 @@ export default function App(): JSX.Element {
 				display={true}
 			/>
 			<MessageBubble
-				profilePicture={ profilePicture }
+				profilePicture={ botData.pfp }
 				message={`Que satisfação, ${props["username"]}. Agora que sei seu nome, qual cidade e estado você mora?`}
 				display={ display[0] }
 			/>
@@ -56,7 +62,7 @@ export default function App(): JSX.Element {
 				display={ display[0] }
 			/>
 			<MessageBubble
-				profilePicture={ profilePicture }
+				profilePicture={ botData.pfp }
 				message="Legal, agora que sabemos sua cidade e estado. Quando foi que você nasceu?"
 				display={ display[1] }
 			/>
@@ -67,7 +73,7 @@ export default function App(): JSX.Element {
 				validator={ dateValidator }
 			/>
 			<MessageBubble
-				profilePicture={ profilePicture }
+				profilePicture={ botData.pfp }
 				message="Agora me fala teu e-mail, por gentileza."
 				display={ display[2] }
 			/>
@@ -78,7 +84,7 @@ export default function App(): JSX.Element {
 				validator={ emailValidator }
 			/>
 			<MessageBubble
-				profilePicture={ profilePicture }
+				profilePicture={ botData.pfp }
 				message="Você finalizou o teste. Faça uma avaliação sobre o processo que realizou até chegar aqui. Nós agradecemos!"
 				display={ display[3] }
 			/>
