@@ -11,7 +11,7 @@ export default function StarsInput({ display }: { display: boolean }): JSX.Eleme
 
 	return (
 		<div className="message-bubble input-bubble" style={{ display: display ? "" : "none" }}>
-			<div className="message-bubble-msg-container stars-container-wrapper">
+			<div className="message-form-msg-container stars-container-wrapper">
 				<div className="stars-container">
 					{
 						[1, 2, 3, 4, 5].map((v: number): JSX.Element => {
@@ -22,6 +22,7 @@ export default function StarsInput({ display }: { display: boolean }): JSX.Eleme
 
 										emitter.emit("msg", { stars: v });
 									}}
+									key={ v }
 									style={{ color: count >= v ? "orange" : "" }}
 								>
 									<i className="fas fa-star" />
