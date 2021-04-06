@@ -13,6 +13,17 @@ Além das bibliotecas [Formik](https://formik.org/), [yup](https://www.npmjs.com
 
 ### Documentação de componentes reutilizaveis
 
+#### Greeting
+
+Componente de saudações do remetente.
+
+```tsx
+<Greeting
+	name="Chatnilson" // nome de exibição
+	profilePicture="image_link" // imagem de perfil
+/>
+```
+
 #### Message Bubble
 
 A bolha de mensagem é o componente para mensagem de remetente.
